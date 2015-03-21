@@ -90,7 +90,7 @@ public class QueueDAO extends GenericDAO {
      lab.setEndDate(new Date());
      lab.setStartDate(new Date());
      lab.setCourse(course);
-     lab.getUsers().add(user);
+//     lab.getUsers().add(user);
      save(lab);
 
      getTransaction().commit();    //commit();
@@ -110,8 +110,8 @@ public class QueueDAO extends GenericDAO {
             UsersDelivery user1 = (UsersDelivery) it.next();
 
           
-            users.add(user1.getUser());
-            System.out.println(user1.getUser().getName());
+//            users.add(user1.getUser());
+//            System.out.println(user1.getUser().getName());
         
         }
 
