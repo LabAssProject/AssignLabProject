@@ -72,7 +72,7 @@ public class QueueDAO extends GenericDAO {
      save(dept);
      User user = new User();
 
-     user.setEmail("ahmed2");
+     user.setEmail("ahmed6");
      user.setIsActive(1);
      user.setName("ahmed");
      user.setPass("123456");
@@ -82,10 +82,10 @@ public class QueueDAO extends GenericDAO {
      course.setIsActive(1);
      course.setDepartment(dept);
      course.setDescription("java");
-     course.setName("java");
+     course.setName("java5");
      save(course);
      Lab lab = new Lab();
-     lab.setName("lab3");
+     lab.setName("lab5");
      lab.setDescription("java lab");
      lab.setEndDate(new Date());
      lab.setStartDate(new Date());
