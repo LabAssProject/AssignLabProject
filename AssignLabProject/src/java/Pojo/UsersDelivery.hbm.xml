@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 20, 2015 7:49:03 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="Pojo.UsersDelivery" table="users_delivery" catalog="labsystem">
+        <composite-id name="id" class="Pojo.UsersDeliveryId">
+            <key-property name="userId" type="int">
+                <column name="user_id" />
+            </key-property>
+            <key-property name="labId" type="int">
+                <column name="lab_id" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="user" class="Pojo.User" update="false" insert="false" fetch="select">
+            <column name="user_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="lab" class="Pojo.Lab" update="false" insert="false" fetch="select">
+            <column name="lab_id" not-null="true" />
+        </many-to-one>
+        <property name="toWhenDate" type="date">
+            <column name="to_when_date" length="10" />
+        </property>
+    </class>
+</hibernate-mapping>
