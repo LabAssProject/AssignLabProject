@@ -40,13 +40,13 @@ public class DepartDAO extends GenericDAO{
     }
 
     public List SelectAllActive() {
-        String hql = "FROM Department p where p.idDepartment=0";
+        String hql = "FROM Department p where p.isActive=0";
         Query query = getSession().createQuery(hql);
         return query.list();
     }
 
     public List SelectAllDeactive() {
-        String hql = "FROM Department p where p.idDepartment=1";
+        String hql = "FROM Department p where p.isActive=1";
         Query query = getSession().createQuery(hql);
         return query.list();
     }
@@ -66,7 +66,7 @@ public class DepartDAO extends GenericDAO{
      * @param departObj
      */
     public List SelectOneByName(Department departObj) {
-        String hql = "FROM Department p where p.name="+departObj.getName();
+        String hql = "FROM Department p where p.name='"+departObj.getName()+"'";
         Query query = getSession().createQuery(hql);
         return query.list();
     }

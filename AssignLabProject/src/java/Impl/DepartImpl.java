@@ -13,11 +13,11 @@ import java.util.List;
  */
 public class DepartImpl implements DepartInt {
     
-    private static DepartDAO Obj;
-    static {
+    private DepartDAO Obj;
+
+    public DepartImpl() {
         Obj = new DepartDAO();
     }
-  
 
     @Override
     public void create(Department departObj) {

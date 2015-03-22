@@ -3,11 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package servlets;
 
-import Impl.DepartImpl;
-import Interfaces.DepartInt;
-import Pojo.Department;
+package Depatservlets;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -20,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author JETS_ITI
  */
-public class ValidateDepart extends HttpServlet {
+public class NewServlet extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,20 +32,17 @@ public class ValidateDepart extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
-        try {
+        try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             out.println("<!DOCTYPE html>");
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet GG</title>");
+            out.println("<title>Servlet NewServlet</title>");            
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1>Servlet GG at " + request.getContextPath() + "</h1>");
+            out.println("<h1>Servlet NewServlet at " + request.getContextPath() + "</h1>");
             out.println("</body>");
             out.println("</html>");
-        } finally {
-            out.close();
         }
     }
 
@@ -63,22 +58,9 @@ public class ValidateDepart extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        System.out.println("GGGGGGGGGGGGG");
-       String name = request.getParameter("name");
-        String Othername = request.getParameter("Othername");
-        PrintWriter out = response.getWriter();
-        DepartInt Obj = new DepartImpl();
-        Department deprtObj = new Department();
-        deprtObj.setName(name);
-        List depts=null;
-        if (Othername == null) {
-            depts = Obj.getDepartByName(deprtObj);
-        }
-        if (depts.size() > 0) {
-            out.println("exist");
-        } else {
-            out.println("not exist");
-        }
+       PrintWriter out=response.getWriter();
+       List l=(List)request.getAttribute("allactiveDepart");
+       out.println(l.size());
     }
 
     /**
@@ -92,7 +74,7 @@ public class ValidateDepart extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+        processRequest(request, response);
     }
 
     /**
