@@ -17,52 +17,42 @@ public class GenericDAO {
 
     private Session session;
 
-  
-  
     public GenericDAO() {
         session = new HibernateUtil().getSessionFactory().openSession();
     }
-    
+
     public void beginTransaction() {
         getSession().beginTransaction();
     }
 
-    
     public void close() {
         getSession().close();
     }
 
-   
     public void commit() {
         getSession().getTransaction().commit();
     }
 
-   
     public void evict(Object e) {
         getSession().evict(e);
     }
 
-  
     public Session getSession() {
         return session;
     }
 
-   
     public Transaction getTransaction() {
         return getSession().getTransaction();
     }
 
-  
     public void rollBack() {
         getSession().getTransaction().rollback();
     }
 
-   
     public Serializable save(Object obj) {
         return getSession().save(obj);
     }
 
-   
     public void saveOrUpdate(Object obj) {
         getSession().saveOrUpdate(obj);
     }
@@ -74,7 +64,11 @@ public class GenericDAO {
         getSession().update(obj);
     }
 
-   
+    public void merge(Object obj) {
+        getSession().merge(obj);
+
+    }
+
     public void delete(Object obj) {
         getSession().delete(obj);
 

@@ -1,5 +1,5 @@
 package Pojo;
-// Generated Mar 20, 2015 7:49:03 PM by Hibernate Tools 3.6.0
+// Generated Mar 22, 2015 11:30:04 AM by Hibernate Tools 3.6.0
 
 
 
@@ -10,12 +10,14 @@ public class UserPhones  implements java.io.Serializable {
 
 
      private Integer userId;
+     private User user;
      private String phone;
 
     public UserPhones() {
     }
 
-    public UserPhones(String phone) {
+    public UserPhones(User user, String phone) {
+       this.user = user;
        this.phone = phone;
     }
    
@@ -25,6 +27,13 @@ public class UserPhones  implements java.io.Serializable {
     
     public void setUserId(Integer userId) {
         this.userId = userId;
+    }
+    public User getUser() {
+        return this.user;
+    }
+    
+    public void setUser(User user) {
+        this.user = user;
     }
     public String getPhone() {
         return this.phone;

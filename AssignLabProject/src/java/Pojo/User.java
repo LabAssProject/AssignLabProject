@@ -1,5 +1,5 @@
 package Pojo;
-// Generated Mar 20, 2015 7:49:03 PM by Hibernate Tools 3.6.0
+// Generated Mar 22, 2015 11:30:04 AM by Hibernate Tools 3.6.0
 
 
 import java.util.HashSet;
@@ -18,12 +18,10 @@ public class User  implements java.io.Serializable {
      private String name;
      private int isActive;
      private Set groups = new HashSet(0);
-     private Set labs = new HashSet(0);
      private Set trainees = new HashSet(0);
-     private Set userNotificationsesForUserRecieverId = new HashSet(0);
-     private Set userNotificationsesForUserSenderId = new HashSet(0);
-     private Set usersDeliveries = new HashSet(0);
      private Set staffs = new HashSet(0);
+     private Set notificationses = new HashSet(0);
+     private Set userPhoneses = new HashSet(0);
 
     public User() {
     }
@@ -36,19 +34,17 @@ public class User  implements java.io.Serializable {
         this.name = name;
         this.isActive = isActive;
     }
-    public User(Department department, String email, String pass, String name, int isActive, Set groups, Set labs, Set trainees, Set userNotificationsesForUserRecieverId, Set userNotificationsesForUserSenderId, Set usersDeliveries, Set staffs) {
+    public User(Department department, String email, String pass, String name, int isActive, Set groups, Set trainees, Set staffs, Set notificationses, Set userPhoneses) {
        this.department = department;
        this.email = email;
        this.pass = pass;
        this.name = name;
        this.isActive = isActive;
        this.groups = groups;
-       this.labs = labs;
        this.trainees = trainees;
-       this.userNotificationsesForUserRecieverId = userNotificationsesForUserRecieverId;
-       this.userNotificationsesForUserSenderId = userNotificationsesForUserSenderId;
-       this.usersDeliveries = usersDeliveries;
        this.staffs = staffs;
+       this.notificationses = notificationses;
+       this.userPhoneses = userPhoneses;
     }
    
     public Integer getIdUser() {
@@ -100,13 +96,6 @@ public class User  implements java.io.Serializable {
     public void setGroups(Set groups) {
         this.groups = groups;
     }
-    public Set getLabs() {
-        return this.labs;
-    }
-    
-    public void setLabs(Set labs) {
-        this.labs = labs;
-    }
     public Set getTrainees() {
         return this.trainees;
     }
@@ -114,33 +103,26 @@ public class User  implements java.io.Serializable {
     public void setTrainees(Set trainees) {
         this.trainees = trainees;
     }
-    public Set getUserNotificationsesForUserRecieverId() {
-        return this.userNotificationsesForUserRecieverId;
-    }
-    
-    public void setUserNotificationsesForUserRecieverId(Set userNotificationsesForUserRecieverId) {
-        this.userNotificationsesForUserRecieverId = userNotificationsesForUserRecieverId;
-    }
-    public Set getUserNotificationsesForUserSenderId() {
-        return this.userNotificationsesForUserSenderId;
-    }
-    
-    public void setUserNotificationsesForUserSenderId(Set userNotificationsesForUserSenderId) {
-        this.userNotificationsesForUserSenderId = userNotificationsesForUserSenderId;
-    }
-    public Set getUsersDeliveries() {
-        return this.usersDeliveries;
-    }
-    
-    public void setUsersDeliveries(Set usersDeliveries) {
-        this.usersDeliveries = usersDeliveries;
-    }
     public Set getStaffs() {
         return this.staffs;
     }
     
     public void setStaffs(Set staffs) {
         this.staffs = staffs;
+    }
+    public Set getNotificationses() {
+        return this.notificationses;
+    }
+    
+    public void setNotificationses(Set notificationses) {
+        this.notificationses = notificationses;
+    }
+    public Set getUserPhoneses() {
+        return this.userPhoneses;
+    }
+    
+    public void setUserPhoneses(Set userPhoneses) {
+        this.userPhoneses = userPhoneses;
     }
 
 

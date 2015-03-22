@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated Mar 20, 2015 7:49:03 PM by Hibernate Tools 3.6.0 -->
+<!-- Generated Mar 22, 2015 11:30:07 AM by Hibernate Tools 3.6.0 -->
 <hibernate-mapping>
     <class name="Pojo.Group" table="group" catalog="labsystem">
         <id name="idGroup" type="java.lang.Integer">
@@ -17,6 +17,12 @@
         <property name="isActive" type="int">
             <column name="is_active" not-null="true" />
         </property>
+        <set name="courseHasGroups" table="course_has_group" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="group_id_group" not-null="true" />
+            </key>
+            <one-to-many class="Pojo.CourseHasGroup" />
+        </set>
         <set name="users" table="users_groups" inverse="false" lazy="true" fetch="select">
             <key>
                 <column name="group_id" not-null="true" />
@@ -25,13 +31,14 @@
                 <column name="user_id" not-null="true" />
             </many-to-many>
         </set>
-        <set name="courses" table="groups_courses" inverse="false" lazy="true" fetch="select">
+        <set name="trainees" table="trainee_has_group" inverse="false" lazy="true" fetch="select">
             <key>
-                <column name="group_id" not-null="true" />
+                <column name="group_id_group" not-null="true" />
             </key>
-            <many-to-many entity-name="Pojo.Course">
-                <column name="course_id" not-null="true" />
+            <many-to-many entity-name="Pojo.Trainee">
+                <column name="trainee_id_trainee" not-null="true" />
             </many-to-many>
         </set>
+        <one-to-one name="groupsCourses" class="Pojo.GroupsCourses"></one-to-one>
     </class>
 </hibernate-mapping>

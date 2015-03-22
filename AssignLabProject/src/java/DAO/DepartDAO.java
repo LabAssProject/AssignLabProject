@@ -9,14 +9,12 @@ import org.hibernate.Query;
  * @version 1.0
  * @created 19-Mar-2015 10:55:46 AM
  */
-public class DepartDAO extends GenericDAO{
-
+public class DepartDAO extends GenericDAO {
 
     /**
      *
      * @param departObj
      */
-    
     public DepartDAO() {
         super();
     }
@@ -56,18 +54,26 @@ public class DepartDAO extends GenericDAO{
      * @param departObj
      */
     public List SelectOne(Department departObj) {
-        String hql = "FROM Department p where p.idDepartment="+departObj.getIdDepartment();
+        String hql = "FROM Department p where p.idDepartment=" + departObj.getIdDepartment();
         Query query = getSession().createQuery(hql);
         return query.list();
     }
-    
+
     /**
      *
      * @param departObj
      */
     public List SelectOneByName(Department departObj) {
-        String hql = "FROM Department p where p.name='"+departObj.getName()+"'";
-        Query query = getSession().createQuery(hql);
+        Query query = null;
+        String hql = null;
+        if (departObj.getIdDepartment() == null) {
+            System.out.println("jjjjjjjj");
+            hql = "FROM Department p where p.name='" + departObj.getName() + "'";
+            query = getSession().createQuery(hql);
+        } else {
+            hql = "FROM Department p where p.idDepartment <> " + departObj.getIdDepartment() + " and p.name='" + departObj.getName() + "'";
+            query = getSession().createQuery(hql);
+        }
         return query.list();
     }
 
@@ -78,6 +84,7 @@ public class DepartDAO extends GenericDAO{
     public void Update(Department departObj) {
         // begin transaction
         beginTransaction();
+        Department dept=(Department)getSession().get(Department.class, departObj.getIdDepartment());
         saveOrUpdate(departObj);
         getTransaction().commit();
     }

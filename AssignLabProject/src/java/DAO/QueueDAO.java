@@ -12,7 +12,6 @@ import Pojo.Lab;
 import Pojo.Trainee;
 import Pojo.User;
 import Pojo.UsersDelivery;
-import Pojo.UsersDeliveryId;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
@@ -47,21 +46,21 @@ public class QueueDAO extends GenericDAO {
     public void insertTraineeInDeliveryQueue(User user, Lab lab) {
         beginTransaction();
 
-        lab = (Lab) getSession().load(Lab.class, lab.getIdLab());
-        user = (User) getSession().load(User.class, user.getIdUser());
-        UsersDeliveryId userDeliveryId = new UsersDeliveryId();
-        userDeliveryId.setLabId(lab.getIdLab());
-        userDeliveryId.setUserId(user.getIdUser());
-        UsersDelivery usersDelivery = new UsersDelivery();
-        usersDelivery.setId(userDeliveryId);
-        usersDelivery.setLab(lab);
-        usersDelivery.setUser(user);
-        user.getUsersDeliveries().add(usersDelivery);
-        saveOrUpdate(user);
-
-        persist(usersDelivery);
-
-        getTransaction().commit();
+//        lab = (Lab) getSession().load(Lab.class, lab.getIdLab());
+//        user = (User) getSession().load(User.class, user.getIdUser());
+//        UsersDeliveryId userDeliveryId = new UsersDeliveryId();
+//        userDeliveryId.setLabId(lab.getIdLab());
+//        userDeliveryId.setUserId(user.getIdUser());
+//        UsersDelivery usersDelivery = new UsersDelivery();
+//        usersDelivery.setId(userDeliveryId);
+//        usersDelivery.setLab(lab);
+//        usersDelivery.setUser(user);
+//        user.getUsersDeliveries().add(usersDelivery);
+//        saveOrUpdate(user);
+//
+//        persist(usersDelivery);
+//
+//        getTransaction().commit();
 
     }
 
@@ -115,8 +114,8 @@ public class QueueDAO extends GenericDAO {
             UsersDelivery user1 = (UsersDelivery) it.next();
 
           
-            users.add(user1.getUser());
-            System.out.println(user1.getUser().getName());
+//            users.add(user1.getUser());
+//            System.out.println(user1.getUser().getName());
         
         }
 

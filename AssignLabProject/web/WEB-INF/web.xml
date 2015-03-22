@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app version="3.0" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
     <servlet>
-        <servlet-name>ValidateDepart</servlet-name>
-        <servlet-class>Depatservlets.ValidAddDepart</servlet-class>
+        <servlet-name>validAddDepart</servlet-name>
+        <servlet-class>Depatservlets.validAddDepart</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>ControlDepart</servlet-name>
-        <servlet-class>Depatservlets.ValidUpdateDepart</servlet-class>
+        <servlet-name>validUpdateDept</servlet-name>
+        <servlet-class>Depatservlets.validUpdateDept</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>SucessPage</servlet-name>
@@ -21,12 +21,12 @@
         <servlet-class>Depatservlets.NewServlet</servlet-class>
     </servlet>
     <servlet-mapping>
-        <servlet-name>ValidateDepart</servlet-name>
-        <url-pattern>/ValidateDepart</url-pattern>
+        <servlet-name>validAddDepart</servlet-name>
+        <url-pattern>/validAddDepart</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>ControlDepart</servlet-name>
-        <url-pattern>/ControlDepart</url-pattern>
+        <servlet-name>validUpdateDept</servlet-name>
+        <url-pattern>/validUpdateDept</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>beforeUpdateDepart</servlet-name>

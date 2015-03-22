@@ -1,5 +1,5 @@
 package Pojo;
-// Generated Mar 20, 2015 7:49:03 PM by Hibernate Tools 3.6.0
+// Generated Mar 22, 2015 11:30:04 AM by Hibernate Tools 3.6.0
 
 
 import java.util.Date;
@@ -18,7 +18,7 @@ public class Lab  implements java.io.Serializable {
      private String description;
      private Date startDate;
      private Date endDate;
-     private Set users = new HashSet(0);
+     private UsersAssistance usersAssistance;
      private Set usersDeliveries = new HashSet(0);
 
     public Lab() {
@@ -32,13 +32,13 @@ public class Lab  implements java.io.Serializable {
         this.startDate = startDate;
         this.endDate = endDate;
     }
-    public Lab(Course course, String name, String description, Date startDate, Date endDate, Set users, Set usersDeliveries) {
+    public Lab(Course course, String name, String description, Date startDate, Date endDate, UsersAssistance usersAssistance, Set usersDeliveries) {
        this.course = course;
        this.name = name;
        this.description = description;
        this.startDate = startDate;
        this.endDate = endDate;
-       this.users = users;
+       this.usersAssistance = usersAssistance;
        this.usersDeliveries = usersDeliveries;
     }
    
@@ -84,12 +84,12 @@ public class Lab  implements java.io.Serializable {
     public void setEndDate(Date endDate) {
         this.endDate = endDate;
     }
-    public Set getUsers() {
-        return this.users;
+    public UsersAssistance getUsersAssistance() {
+        return this.usersAssistance;
     }
     
-    public void setUsers(Set users) {
-        this.users = users;
+    public void setUsersAssistance(UsersAssistance usersAssistance) {
+        this.usersAssistance = usersAssistance;
     }
     public Set getUsersDeliveries() {
         return this.usersDeliveries;

@@ -1,5 +1,5 @@
 package Pojo;
-// Generated Mar 20, 2015 7:49:03 PM by Hibernate Tools 3.6.0
+// Generated Mar 22, 2015 11:30:04 AM by Hibernate Tools 3.6.0
 
 
 import java.util.HashSet;
@@ -15,8 +15,10 @@ public class Group  implements java.io.Serializable {
      private String name;
      private String description;
      private int isActive;
+     private Set courseHasGroups = new HashSet(0);
      private Set users = new HashSet(0);
-     private Set courses = new HashSet(0);
+     private Set trainees = new HashSet(0);
+     private GroupsCourses groupsCourses;
 
     public Group() {
     }
@@ -27,12 +29,14 @@ public class Group  implements java.io.Serializable {
         this.description = description;
         this.isActive = isActive;
     }
-    public Group(String name, String description, int isActive, Set users, Set courses) {
+    public Group(String name, String description, int isActive, Set courseHasGroups, Set users, Set trainees, GroupsCourses groupsCourses) {
        this.name = name;
        this.description = description;
        this.isActive = isActive;
+       this.courseHasGroups = courseHasGroups;
        this.users = users;
-       this.courses = courses;
+       this.trainees = trainees;
+       this.groupsCourses = groupsCourses;
     }
    
     public Integer getIdGroup() {
@@ -63,6 +67,13 @@ public class Group  implements java.io.Serializable {
     public void setIsActive(int isActive) {
         this.isActive = isActive;
     }
+    public Set getCourseHasGroups() {
+        return this.courseHasGroups;
+    }
+    
+    public void setCourseHasGroups(Set courseHasGroups) {
+        this.courseHasGroups = courseHasGroups;
+    }
     public Set getUsers() {
         return this.users;
     }
@@ -70,12 +81,19 @@ public class Group  implements java.io.Serializable {
     public void setUsers(Set users) {
         this.users = users;
     }
-    public Set getCourses() {
-        return this.courses;
+    public Set getTrainees() {
+        return this.trainees;
     }
     
-    public void setCourses(Set courses) {
-        this.courses = courses;
+    public void setTrainees(Set trainees) {
+        this.trainees = trainees;
+    }
+    public GroupsCourses getGroupsCourses() {
+        return this.groupsCourses;
+    }
+    
+    public void setGroupsCourses(GroupsCourses groupsCourses) {
+        this.groupsCourses = groupsCourses;
     }
 
 

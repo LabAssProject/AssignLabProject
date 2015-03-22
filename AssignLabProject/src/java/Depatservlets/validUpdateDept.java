@@ -3,7 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package Depatservlets;
 
 import Impl.DepartImpl;
@@ -11,6 +10,8 @@ import Interfaces.DepartInt;
 import Pojo.Department;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -20,7 +21,7 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author JETS_ITI
  */
-public class ValidUpdateDepart extends HttpServlet {
+public class validUpdateDept extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -33,22 +34,35 @@ public class ValidUpdateDepart extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
-        try {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet ControlDepart</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet ControlDepart at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        } finally {
-            out.close();
+        String SelectName = request.getParameter("AllDepart");
+        String name = request.getParameter("name");
+        String desc = request.getParameter("description");
+        DepartInt Obj = new DepartImpl();
+        if (!name.trim().equals("") && !desc.trim().equals("")) {
+            Department deprtObj = new Department();
+            // get id of department name
+            deprtObj.setName(SelectName);
+            List names=Obj.getDepartByName(deprtObj);
+            deprtObj.setIdDepartment(((Department)names.get(0)).getIdDepartment());
+            deprtObj.setName(name);
+            deprtObj.setDescription(desc);
+            deprtObj.setIsActive(0);
+            
+            List l=Obj.getDepartByName(deprtObj);
+            if(l.size()>0){
+                request.setAttribute("allactiveDepart", Obj.GetAllDepartActive());
+                request.setAttribute("chName", "Name exist");
+                RequestDispatcher dispatcher1 = request.getRequestDispatcher("/UpdateDepart.jsp");
+                dispatcher1.forward(request, response);
+            }
+            else{
+                Obj.update(deprtObj);
+                response.sendRedirect("SucessPage.jsp");
+            }
+        } else {
+            response.sendRedirect("beforeUpdateDepart");
         }
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -77,28 +91,7 @@ public class ValidUpdateDepart extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String name = request.getParameter("name");
-        String desc = request.getParameter("description");
-        
-        if(name!=null && desc!=null){
-            if(!name.trim().equals("") && !desc.trim().equals("")){
-                DepartInt Obj = new DepartImpl();
-                Department deprtObj = new Department();
-                deprtObj.setName(name);
-                deprtObj.setDescription(desc);
-                deprtObj.setIsActive(0);
-                Obj.create(deprtObj);
-                response.sendRedirect("SucessPage.jsp");
-            }
-            else{
-                System.out.println("jjjjjuuuu");
-                response.sendRedirect("AddDepart.jsp");
-            }
-        }
-        else{
-            System.out.println("jjjjj");
-            response.sendRedirect("AddDepart.jsp");
-        }
+        processRequest(request, response);
     }
 
     /**
