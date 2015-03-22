@@ -1,5 +1,5 @@
 package Pojo;
-// Generated Mar 22, 2015 11:30:04 AM by Hibernate Tools 3.6.0
+// Generated Mar 22, 2015 7:46:58 PM by Hibernate Tools 3.6.0
 
 
 import java.util.HashSet;
@@ -11,42 +11,43 @@ import java.util.Set;
 public class UsersAssistance  implements java.io.Serializable {
 
 
-     private int labId;
-     private Lab lab;
-     private Set trainees = new HashSet(0);
+     private int assisqueueId;
+     private Set labs = new HashSet(0);
+     private Set usersAssistanceHasTrainees = new HashSet(0);
 
     public UsersAssistance() {
     }
 
 	
-    public UsersAssistance(Lab lab) {
-        this.lab = lab;
+    public UsersAssistance(int assisqueueId) {
+        this.assisqueueId = assisqueueId;
     }
-    public UsersAssistance(Lab lab, Set trainees) {
-       this.lab = lab;
-       this.trainees = trainees;
+    public UsersAssistance(int assisqueueId, Set labs, Set usersAssistanceHasTrainees) {
+       this.assisqueueId = assisqueueId;
+       this.labs = labs;
+       this.usersAssistanceHasTrainees = usersAssistanceHasTrainees;
     }
    
-    public int getLabId() {
-        return this.labId;
+    public int getAssisqueueId() {
+        return this.assisqueueId;
     }
     
-    public void setLabId(int labId) {
-        this.labId = labId;
+    public void setAssisqueueId(int assisqueueId) {
+        this.assisqueueId = assisqueueId;
     }
-    public Lab getLab() {
-        return this.lab;
-    }
-    
-    public void setLab(Lab lab) {
-        this.lab = lab;
-    }
-    public Set getTrainees() {
-        return this.trainees;
+    public Set getLabs() {
+        return this.labs;
     }
     
-    public void setTrainees(Set trainees) {
-        this.trainees = trainees;
+    public void setLabs(Set labs) {
+        this.labs = labs;
+    }
+    public Set getUsersAssistanceHasTrainees() {
+        return this.usersAssistanceHasTrainees;
+    }
+    
+    public void setUsersAssistanceHasTrainees(Set usersAssistanceHasTrainees) {
+        this.usersAssistanceHasTrainees = usersAssistanceHasTrainees;
     }
 
 

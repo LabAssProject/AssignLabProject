@@ -1,5 +1,5 @@
 package Pojo;
-// Generated Mar 22, 2015 11:30:04 AM by Hibernate Tools 3.6.0
+// Generated Mar 22, 2015 7:46:58 PM by Hibernate Tools 3.6.0
 
 
 import java.util.HashSet;
@@ -18,8 +18,6 @@ public class User  implements java.io.Serializable {
      private String name;
      private int isActive;
      private Set groups = new HashSet(0);
-     private Set trainees = new HashSet(0);
-     private Set staffs = new HashSet(0);
      private Set notificationses = new HashSet(0);
      private Set userPhoneses = new HashSet(0);
 
@@ -34,15 +32,13 @@ public class User  implements java.io.Serializable {
         this.name = name;
         this.isActive = isActive;
     }
-    public User(Department department, String email, String pass, String name, int isActive, Set groups, Set trainees, Set staffs, Set notificationses, Set userPhoneses) {
+    public User(Department department, String email, String pass, String name, int isActive, Set groups, Set notificationses, Set userPhoneses) {
        this.department = department;
        this.email = email;
        this.pass = pass;
        this.name = name;
        this.isActive = isActive;
        this.groups = groups;
-       this.trainees = trainees;
-       this.staffs = staffs;
        this.notificationses = notificationses;
        this.userPhoneses = userPhoneses;
     }
@@ -95,20 +91,6 @@ public class User  implements java.io.Serializable {
     
     public void setGroups(Set groups) {
         this.groups = groups;
-    }
-    public Set getTrainees() {
-        return this.trainees;
-    }
-    
-    public void setTrainees(Set trainees) {
-        this.trainees = trainees;
-    }
-    public Set getStaffs() {
-        return this.staffs;
-    }
-    
-    public void setStaffs(Set staffs) {
-        this.staffs = staffs;
     }
     public Set getNotificationses() {
         return this.notificationses;

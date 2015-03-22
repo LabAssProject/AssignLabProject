@@ -1,5 +1,5 @@
 package Pojo;
-// Generated Mar 22, 2015 11:30:04 AM by Hibernate Tools 3.6.0
+// Generated Mar 22, 2015 7:46:58 PM by Hibernate Tools 3.6.0
 
 
 import java.util.Date;
@@ -13,33 +13,41 @@ public class Lab  implements java.io.Serializable {
 
 
      private Integer idLab;
+     private UsersAssistance usersAssistance;
      private Course course;
      private String name;
      private String description;
      private Date startDate;
      private Date endDate;
-     private UsersAssistance usersAssistance;
+     private boolean uploadAvailable;
+     private Date uploadDate;
      private Set usersDeliveries = new HashSet(0);
+     private Set uploadFilePerLabs = new HashSet(0);
 
     public Lab() {
     }
 
 	
-    public Lab(Course course, String name, String description, Date startDate, Date endDate) {
+    public Lab(UsersAssistance usersAssistance, Course course, String name, String description, Date startDate, Date endDate, boolean uploadAvailable) {
+        this.usersAssistance = usersAssistance;
         this.course = course;
         this.name = name;
         this.description = description;
         this.startDate = startDate;
         this.endDate = endDate;
+        this.uploadAvailable = uploadAvailable;
     }
-    public Lab(Course course, String name, String description, Date startDate, Date endDate, UsersAssistance usersAssistance, Set usersDeliveries) {
+    public Lab(UsersAssistance usersAssistance, Course course, String name, String description, Date startDate, Date endDate, boolean uploadAvailable, Date uploadDate, Set usersDeliveries, Set uploadFilePerLabs) {
+       this.usersAssistance = usersAssistance;
        this.course = course;
        this.name = name;
        this.description = description;
        this.startDate = startDate;
        this.endDate = endDate;
-       this.usersAssistance = usersAssistance;
+       this.uploadAvailable = uploadAvailable;
+       this.uploadDate = uploadDate;
        this.usersDeliveries = usersDeliveries;
+       this.uploadFilePerLabs = uploadFilePerLabs;
     }
    
     public Integer getIdLab() {
@@ -48,6 +56,13 @@ public class Lab  implements java.io.Serializable {
     
     public void setIdLab(Integer idLab) {
         this.idLab = idLab;
+    }
+    public UsersAssistance getUsersAssistance() {
+        return this.usersAssistance;
+    }
+    
+    public void setUsersAssistance(UsersAssistance usersAssistance) {
+        this.usersAssistance = usersAssistance;
     }
     public Course getCourse() {
         return this.course;
@@ -84,12 +99,19 @@ public class Lab  implements java.io.Serializable {
     public void setEndDate(Date endDate) {
         this.endDate = endDate;
     }
-    public UsersAssistance getUsersAssistance() {
-        return this.usersAssistance;
+    public boolean isUploadAvailable() {
+        return this.uploadAvailable;
     }
     
-    public void setUsersAssistance(UsersAssistance usersAssistance) {
-        this.usersAssistance = usersAssistance;
+    public void setUploadAvailable(boolean uploadAvailable) {
+        this.uploadAvailable = uploadAvailable;
+    }
+    public Date getUploadDate() {
+        return this.uploadDate;
+    }
+    
+    public void setUploadDate(Date uploadDate) {
+        this.uploadDate = uploadDate;
     }
     public Set getUsersDeliveries() {
         return this.usersDeliveries;
@@ -97,6 +119,13 @@ public class Lab  implements java.io.Serializable {
     
     public void setUsersDeliveries(Set usersDeliveries) {
         this.usersDeliveries = usersDeliveries;
+    }
+    public Set getUploadFilePerLabs() {
+        return this.uploadFilePerLabs;
+    }
+    
+    public void setUploadFilePerLabs(Set uploadFilePerLabs) {
+        this.uploadFilePerLabs = uploadFilePerLabs;
     }
 
 

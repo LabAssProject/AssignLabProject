@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+ <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated Mar 22, 2015 11:30:07 AM by Hibernate Tools 3.6.0 -->
+<!-- Generated Mar 22, 2015 7:46:58 PM by Hibernate Tools 3.6.0 -->
 <hibernate-mapping>
     <class name="Pojo.Notifications" table="notifications" catalog="labsystem">
         <id name="notificationId" type="int">

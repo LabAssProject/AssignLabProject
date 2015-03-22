@@ -11,12 +11,27 @@
         <script type="text/javascript" src="../js/Myriad_Pro_300.font.js"></script>
         <script type="text/javascript" src="../js/Myriad_Pro_400.font.js"></script>
         <script type="text/javascript" src="../js/script.js"></script>
-        <!--[if lt IE 7]>
-        <link rel="stylesheet" href="css/ie6.css" type="text/css" media="screen">
-        <script type="text/javascript" src="js/ie_png.js"></script>
-        <script type="text/javascript">ie_png.fix('.png, footer, header nav ul li a, .nav-bg, .list li img');</script>
-        <![endif]-->
-        <!--[if lt IE 9]><script type="text/javascript" src="js/html5.js"></script><![endif]-->
+        <script>
+            // when user select department , will assign department name , description in text field
+            function refreshComp() {
+                var selVal = document.getElementById("deptsall").value;
+                if (selVal == "") {
+                    document.getElementById("updateButton").hidden = true;
+                    document.getElementById("popup_txt1").value = "";
+                    document.getElementById("popup_txt2").value = "";
+                }
+                else if (selVal != "") {
+                    var stateArray = new Array();
+                    <c:forEach var="state" items="${deptlist}" varStatus="status">
+                            stateArray[${status.index}] = "${state.description}";
+                    </c:forEach>
+                    document.getElementById("updateButton").hidden = false;
+                    document.getElementById("popup_txt1").value = selVal;
+                    document.getElementById("popup_txt2").innerHTML = stateArray[(document.getElementById("deptsall").selectedIndex) - 1];
+                }
+            }
+
+        </script>
     </head>
     <body id="page2">
         <iframe  name="iframe_ab"  style=" z-index: -1; border:none ; position:absolute; top:0; left:0; right:0; bottom:0; width:100%; height:100%" ></iframe>
@@ -74,18 +89,18 @@
                             <table class="form_table">
                                 <tr>
                                     <td colspan="3">
-                                        <div id="form_header">Create Department</div>
+                                        <div id="form_header">Create Course</div>
                                     </td>
                                     <td></td>
 
                                 </tr>
                                 <tr>
                                     <td>
-                                        <h3>Department Name</h3>
+                                        <h3>Name</h3>
                                     </td>
                                     <td>
                                         <div class="form-group">
-                                            <input type="text" name="name" class="form-control" placeholder="Department Name" required="">
+                                            <input type="text" name="name" class="form-control" placeholder="Course Name" required="">
                                         </div>
                                     </td>
                                     <td>
@@ -94,16 +109,34 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <h3>Department Description</h3>
+                                        <h3>Description</h3>
                                     </td>
                                     <td>
                                         <div class="form-group">
-                                            <textarea class="form-control" name="description" placeholder="GroupDescription" required=""> </textarea>
+                                            <textarea class="form-control" name="description" placeholder="Course  Description" required=""> </textarea>
 
                                         </div>
                                     </td>
                                     <td>
-                                        <span class="span-col" id="des-span">*</span>
+                                        <span class="span-col" id="des-span"></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <h3>Department</h3>
+                                    </td>
+                                    <td>
+                                        <div>
+                                            <select class="form-control" name="AllDepart" id="deptsall">
+                                                <option selected="selected" value="" selected="selected">Choose...</option>
+                                                <c:forEach var="fieldItem" items="${deptlist}">
+                                                    <option value="${fieldItem.name}">${fieldItem.name}</option>             
+                                                </c:forEach>
+                                            </select>
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <span class="span-col" id="create-span"></span>
                                     </td>
                                 </tr>
                                 <tr>

@@ -1,5 +1,5 @@
 package Pojo;
-// Generated Mar 22, 2015 11:30:04 AM by Hibernate Tools 3.6.0
+// Generated Mar 22, 2015 7:46:58 PM by Hibernate Tools 3.6.0
 
 
 import java.util.HashSet;
@@ -12,29 +12,32 @@ public class Course  implements java.io.Serializable {
 
 
      private Integer idCourse;
+     private Group group;
      private Department department;
      private String name;
      private String description;
      private int isActive;
-     private Set courseHasGroups = new HashSet(0);
+     private Set staffs = new HashSet(0);
      private Set labs = new HashSet(0);
 
     public Course() {
     }
 
 	
-    public Course(Department department, String name, String description, int isActive) {
+    public Course(Group group, Department department, String name, String description, int isActive) {
+        this.group = group;
         this.department = department;
         this.name = name;
         this.description = description;
         this.isActive = isActive;
     }
-    public Course(Department department, String name, String description, int isActive, Set courseHasGroups, Set labs) {
+    public Course(Group group, Department department, String name, String description, int isActive, Set staffs, Set labs) {
+       this.group = group;
        this.department = department;
        this.name = name;
        this.description = description;
        this.isActive = isActive;
-       this.courseHasGroups = courseHasGroups;
+       this.staffs = staffs;
        this.labs = labs;
     }
    
@@ -44,6 +47,13 @@ public class Course  implements java.io.Serializable {
     
     public void setIdCourse(Integer idCourse) {
         this.idCourse = idCourse;
+    }
+    public Group getGroup() {
+        return this.group;
+    }
+    
+    public void setGroup(Group group) {
+        this.group = group;
     }
     public Department getDepartment() {
         return this.department;
@@ -73,12 +83,12 @@ public class Course  implements java.io.Serializable {
     public void setIsActive(int isActive) {
         this.isActive = isActive;
     }
-    public Set getCourseHasGroups() {
-        return this.courseHasGroups;
+    public Set getStaffs() {
+        return this.staffs;
     }
     
-    public void setCourseHasGroups(Set courseHasGroups) {
-        this.courseHasGroups = courseHasGroups;
+    public void setStaffs(Set staffs) {
+        this.staffs = staffs;
     }
     public Set getLabs() {
         return this.labs;

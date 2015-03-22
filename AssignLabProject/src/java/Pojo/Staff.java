@@ -1,5 +1,5 @@
 package Pojo;
-// Generated Mar 22, 2015 11:30:04 AM by Hibernate Tools 3.6.0
+// Generated Mar 22, 2015 7:46:58 PM by Hibernate Tools 3.6.0
 
 
 import java.util.HashSet;
@@ -12,25 +12,22 @@ public class Staff  implements java.io.Serializable {
 
 
      private Integer idStaff;
-     private User user;
      private int isAdmin;
      private int position;
-     private Set courseHasGroups = new HashSet(0);
+     private Set courses = new HashSet(0);
 
     public Staff() {
     }
 
 	
-    public Staff(User user, int isAdmin, int position) {
-        this.user = user;
+    public Staff(int isAdmin, int position) {
         this.isAdmin = isAdmin;
         this.position = position;
     }
-    public Staff(User user, int isAdmin, int position, Set courseHasGroups) {
-       this.user = user;
+    public Staff(int isAdmin, int position, Set courses) {
        this.isAdmin = isAdmin;
        this.position = position;
-       this.courseHasGroups = courseHasGroups;
+       this.courses = courses;
     }
    
     public Integer getIdStaff() {
@@ -39,13 +36,6 @@ public class Staff  implements java.io.Serializable {
     
     public void setIdStaff(Integer idStaff) {
         this.idStaff = idStaff;
-    }
-    public User getUser() {
-        return this.user;
-    }
-    
-    public void setUser(User user) {
-        this.user = user;
     }
     public int getIsAdmin() {
         return this.isAdmin;
@@ -61,12 +51,12 @@ public class Staff  implements java.io.Serializable {
     public void setPosition(int position) {
         this.position = position;
     }
-    public Set getCourseHasGroups() {
-        return this.courseHasGroups;
+    public Set getCourses() {
+        return this.courses;
     }
     
-    public void setCourseHasGroups(Set courseHasGroups) {
-        this.courseHasGroups = courseHasGroups;
+    public void setCourses(Set courses) {
+        this.courses = courses;
     }
 
 

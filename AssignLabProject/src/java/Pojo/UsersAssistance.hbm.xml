@@ -1,23 +1,24 @@
 <?xml version="1.0"?>
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+ <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated Mar 22, 2015 11:30:07 AM by Hibernate Tools 3.6.0 -->
+<!-- Generated Mar 22, 2015 7:46:58 PM by Hibernate Tools 3.6.0 -->
 <hibernate-mapping>
     <class name="Pojo.UsersAssistance" table="users_assistance" catalog="labsystem">
-        <id name="labId" type="int">
-            <column name="lab_id" />
-            <generator class="foreign">
-                <param name="property">lab</param>
-            </generator>
+        <id name="assisqueueId" type="int">
+            <column name="assisqueue_id" />
+            <generator class="assigned" />
         </id>
-        <one-to-one name="lab" class="Pojo.Lab" constrained="true"></one-to-one>
-        <set name="trainees" table="users_assistance_has_trainee" inverse="false" lazy="true" fetch="select">
+        <set name="labs" table="lab" inverse="true" lazy="true" fetch="select">
             <key>
-                <column name="users_assistance_lab_id" not-null="true" />
+                <column name="users_assistance_assisqueue_id" not-null="true" />
             </key>
-            <many-to-many entity-name="Pojo.Trainee">
-                <column name="trainee_id_trainee" not-null="true" />
-            </many-to-many>
+            <one-to-many class="Pojo.Lab" />
+        </set>
+        <set name="usersAssistanceHasTrainees" table="users_assistance_has_trainee" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="users_assistance_assisqueue_id" not-null="true" />
+            </key>
+            <one-to-many class="Pojo.UsersAssistanceHasTrainee" />
         </set>
     </class>
 </hibernate-mapping>

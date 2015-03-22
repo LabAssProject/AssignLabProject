@@ -1,5 +1,5 @@
 package Pojo;
-// Generated Mar 22, 2015 11:30:04 AM by Hibernate Tools 3.6.0
+// Generated Mar 22, 2015 7:46:58 PM by Hibernate Tools 3.6.0
 
 
 import java.util.Date;
@@ -15,24 +15,21 @@ public class UsersDelivery  implements java.io.Serializable {
      private int delilverQueueId;
      private Lab lab;
      private Date toWhenDate;
-     private int served;
-     private Set trainees = new HashSet(0);
+     private Set usersDeliveryHasTrainees = new HashSet(0);
 
     public UsersDelivery() {
     }
 
 	
-    public UsersDelivery(int delilverQueueId, Lab lab, int served) {
+    public UsersDelivery(int delilverQueueId, Lab lab) {
         this.delilverQueueId = delilverQueueId;
         this.lab = lab;
-        this.served = served;
     }
-    public UsersDelivery(int delilverQueueId, Lab lab, Date toWhenDate, int served, Set trainees) {
+    public UsersDelivery(int delilverQueueId, Lab lab, Date toWhenDate, Set usersDeliveryHasTrainees) {
        this.delilverQueueId = delilverQueueId;
        this.lab = lab;
        this.toWhenDate = toWhenDate;
-       this.served = served;
-       this.trainees = trainees;
+       this.usersDeliveryHasTrainees = usersDeliveryHasTrainees;
     }
    
     public int getDelilverQueueId() {
@@ -56,19 +53,12 @@ public class UsersDelivery  implements java.io.Serializable {
     public void setToWhenDate(Date toWhenDate) {
         this.toWhenDate = toWhenDate;
     }
-    public int getServed() {
-        return this.served;
+    public Set getUsersDeliveryHasTrainees() {
+        return this.usersDeliveryHasTrainees;
     }
     
-    public void setServed(int served) {
-        this.served = served;
-    }
-    public Set getTrainees() {
-        return this.trainees;
-    }
-    
-    public void setTrainees(Set trainees) {
-        this.trainees = trainees;
+    public void setUsersDeliveryHasTrainees(Set usersDeliveryHasTrainees) {
+        this.usersDeliveryHasTrainees = usersDeliveryHasTrainees;
     }
 
 

@@ -1,5 +1,5 @@
 package Pojo;
-// Generated Mar 22, 2015 11:30:04 AM by Hibernate Tools 3.6.0
+// Generated Mar 22, 2015 7:46:58 PM by Hibernate Tools 3.6.0
 
 
 import java.util.HashSet;
@@ -12,26 +12,25 @@ public class Trainee  implements java.io.Serializable {
 
 
      private Integer idTrainee;
-     private User user;
      private int intake;
-     private Set usersDeliveries = new HashSet(0);
-     private Set usersAssistances = new HashSet(0);
+     private Set usersDeliveryHasTrainees = new HashSet(0);
+     private Set usersAssistanceHasTrainees = new HashSet(0);
      private Set groups = new HashSet(0);
+     private Set uploadFilePerLabs = new HashSet(0);
 
     public Trainee() {
     }
 
 	
-    public Trainee(User user, int intake) {
-        this.user = user;
+    public Trainee(int intake) {
         this.intake = intake;
     }
-    public Trainee(User user, int intake, Set usersDeliveries, Set usersAssistances, Set groups) {
-       this.user = user;
+    public Trainee(int intake, Set usersDeliveryHasTrainees, Set usersAssistanceHasTrainees, Set groups, Set uploadFilePerLabs) {
        this.intake = intake;
-       this.usersDeliveries = usersDeliveries;
-       this.usersAssistances = usersAssistances;
+       this.usersDeliveryHasTrainees = usersDeliveryHasTrainees;
+       this.usersAssistanceHasTrainees = usersAssistanceHasTrainees;
        this.groups = groups;
+       this.uploadFilePerLabs = uploadFilePerLabs;
     }
    
     public Integer getIdTrainee() {
@@ -41,13 +40,6 @@ public class Trainee  implements java.io.Serializable {
     public void setIdTrainee(Integer idTrainee) {
         this.idTrainee = idTrainee;
     }
-    public User getUser() {
-        return this.user;
-    }
-    
-    public void setUser(User user) {
-        this.user = user;
-    }
     public int getIntake() {
         return this.intake;
     }
@@ -55,19 +47,19 @@ public class Trainee  implements java.io.Serializable {
     public void setIntake(int intake) {
         this.intake = intake;
     }
-    public Set getUsersDeliveries() {
-        return this.usersDeliveries;
+    public Set getUsersDeliveryHasTrainees() {
+        return this.usersDeliveryHasTrainees;
     }
     
-    public void setUsersDeliveries(Set usersDeliveries) {
-        this.usersDeliveries = usersDeliveries;
+    public void setUsersDeliveryHasTrainees(Set usersDeliveryHasTrainees) {
+        this.usersDeliveryHasTrainees = usersDeliveryHasTrainees;
     }
-    public Set getUsersAssistances() {
-        return this.usersAssistances;
+    public Set getUsersAssistanceHasTrainees() {
+        return this.usersAssistanceHasTrainees;
     }
     
-    public void setUsersAssistances(Set usersAssistances) {
-        this.usersAssistances = usersAssistances;
+    public void setUsersAssistanceHasTrainees(Set usersAssistanceHasTrainees) {
+        this.usersAssistanceHasTrainees = usersAssistanceHasTrainees;
     }
     public Set getGroups() {
         return this.groups;
@@ -75,6 +67,13 @@ public class Trainee  implements java.io.Serializable {
     
     public void setGroups(Set groups) {
         this.groups = groups;
+    }
+    public Set getUploadFilePerLabs() {
+        return this.uploadFilePerLabs;
+    }
+    
+    public void setUploadFilePerLabs(Set uploadFilePerLabs) {
+        this.uploadFilePerLabs = uploadFilePerLabs;
     }
 
 

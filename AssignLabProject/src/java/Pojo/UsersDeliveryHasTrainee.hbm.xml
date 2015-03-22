@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+ <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 22, 2015 7:46:58 PM by Hibernate Tools 3.6.0 -->
+<hibernate-mapping>
+    <class name="Pojo.UsersDeliveryHasTrainee" table="users_delivery_has_trainee" catalog="labsystem">
+        <composite-id name="id" class="Pojo.UsersDeliveryHasTraineeId">
+            <key-property name="usersDeliveryDelilverQueueId" type="int">
+                <column name="users_delivery_delilver_queue_id" />
+            </key-property>
+            <key-property name="traineeIdTrainee" type="int">
+                <column name="trainee_id_trainee" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="usersDelivery" class="Pojo.UsersDelivery" update="false" insert="false" fetch="select">
+            <column name="users_delivery_delilver_queue_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="trainee" class="Pojo.Trainee" update="false" insert="false" fetch="select">
+            <column name="trainee_id_trainee" not-null="true" />
+        </many-to-one>
+        <property name="timesOfServed" type="java.lang.Integer">
+            <column name="times_of_served" />
+        </property>
+        <property name="served" type="int">
+            <column name="served" not-null="true" />
+        </property>
+        <property name="comment" type="string">
+            <column name="comment" length="45" />
+        </property>
+    </class>
+</hibernate-mapping>

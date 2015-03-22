@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+ <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated Mar 22, 2015 11:30:07 AM by Hibernate Tools 3.6.0 -->
+<!-- Generated Mar 22, 2015 7:46:58 PM by Hibernate Tools 3.6.0 -->
 <hibernate-mapping>
     <class name="Pojo.UsersDelivery" table="users_delivery" catalog="labsystem">
         <id name="delilverQueueId" type="int">
@@ -9,21 +9,16 @@
             <generator class="assigned" />
         </id>
         <many-to-one name="lab" class="Pojo.Lab" fetch="select">
-            <column name="lab_id" not-null="true" />
+            <column name="lab_id_lab" not-null="true" />
         </many-to-one>
         <property name="toWhenDate" type="date">
             <column name="to_when_date" length="10" />
         </property>
-        <property name="served" type="int">
-            <column name="served" not-null="true" />
-        </property>
-        <set name="trainees" table="users_delivery_has_trainee" inverse="false" lazy="true" fetch="select">
+        <set name="usersDeliveryHasTrainees" table="users_delivery_has_trainee" inverse="true" lazy="true" fetch="select">
             <key>
                 <column name="users_delivery_delilver_queue_id" not-null="true" />
             </key>
-            <many-to-many entity-name="Pojo.Trainee">
-                <column name="trainee_id_trainee" not-null="true" />
-            </many-to-many>
+            <one-to-many class="Pojo.UsersDeliveryHasTrainee" />
         </set>
     </class>
 </hibernate-mapping>

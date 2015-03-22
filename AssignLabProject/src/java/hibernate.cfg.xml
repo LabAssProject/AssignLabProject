@@ -6,15 +6,16 @@
     <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
     <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/labsystem?zeroDateTimeBehavior=convertToNull</property>
     <property name="hibernate.connection.username">root</property>
+    <mapping resource="Pojo/UsersDeliveryHasTrainee.hbm.xml"/>
+    <mapping resource="Pojo/UsersAssistanceHasTrainee.hbm.xml"/>
     <mapping resource="Pojo/UserPhones.hbm.xml"/>
     <mapping resource="Pojo/Group.hbm.xml"/>
+    <mapping resource="Pojo/UploadFilePerLab.hbm.xml"/>
     <mapping resource="Pojo/Course.hbm.xml"/>
-    <mapping resource="Pojo/CourseHasGroup.hbm.xml"/>
     <mapping resource="Pojo/Staff.hbm.xml"/>
     <mapping resource="Pojo/Notifications.hbm.xml"/>
     <mapping resource="Pojo/User.hbm.xml"/>
     <mapping resource="Pojo/Lab.hbm.xml"/>
-    <mapping resource="Pojo/GroupsCourses.hbm.xml"/>
     <mapping resource="Pojo/Trainee.hbm.xml"/>
     <mapping resource="Pojo/UsersAssistance.hbm.xml"/>
     <mapping resource="Pojo/UsersDelivery.hbm.xml"/>

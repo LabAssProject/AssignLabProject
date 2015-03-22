@@ -1,27 +1,26 @@
 <?xml version="1.0"?>
-<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+ <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
-<!-- Generated Mar 22, 2015 11:30:07 AM by Hibernate Tools 3.6.0 -->
+<!-- Generated Mar 22, 2015 7:46:58 PM by Hibernate Tools 3.6.0 -->
 <hibernate-mapping>
     <class name="Pojo.Staff" table="staff" catalog="labsystem">
         <id name="idStaff" type="java.lang.Integer">
             <column name="id_staff" />
             <generator class="identity" />
         </id>
-        <many-to-one name="user" class="Pojo.User" fetch="select">
-            <column name="user_id" not-null="true" />
-        </many-to-one>
         <property name="isAdmin" type="int">
             <column name="is_admin" not-null="true" />
         </property>
         <property name="position" type="int">
             <column name="position" not-null="true" />
         </property>
-        <set name="courseHasGroups" table="course_has_group" inverse="true" lazy="true" fetch="select">
+        <set name="courses" table="course_has_staff" inverse="false" lazy="true" fetch="select">
             <key>
                 <column name="staff_id_staff" not-null="true" />
             </key>
-            <one-to-many class="Pojo.CourseHasGroup" />
+            <many-to-many entity-name="Pojo.Course">
+                <column name="course_id_course" not-null="true" />
+            </many-to-many>
         </set>
     </class>
 </hibernate-mapping>
