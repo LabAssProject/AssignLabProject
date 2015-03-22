@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Update Department</title>
+        <title>Deactivate Department</title>
         <!--get All Active department from request --> 
         <c:set var="deptlist" value="${requestScope.allactiveDepart}"/>
 
@@ -24,7 +24,6 @@
                 if (selVal == "") {
                     document.getElementById("updateButton").hidden = true;
                     document.getElementById("popup_txt1").value = "";
-                    document.getElementById("popup_txt2").value = "";
                 }
                 else if (selVal != "") {
                     var stateArray = new Array();
@@ -32,8 +31,7 @@
                             stateArray[${status.index}] = "${state.description}";
                     </c:forEach>
                     document.getElementById("updateButton").hidden = false;
-                    document.getElementById("popup_txt1").value = selVal;
-                    document.getElementById("popup_txt2").innerHTML = stateArray[(document.getElementById("deptsall").selectedIndex) - 1];
+                    document.getElementById("popup_txt1").innerHTML = selVal;
                 }
             }
 
@@ -73,7 +71,7 @@
                         <li><span><a href="../AddDepart.jsp">Create Department</a></span></li>
                         <li><span><a href="../beforeUpdateDepart">Update Department</a></span></li>
                         <li><span><a href="deleteGroup.html" >Delete Department</a></span></li>
-                        <li class="last"><span><a href="deactivateGroup.html" >Deactivate Department</a></span></li>
+                        <li class="last"><span><a href="../beforeDeactDepart" >Deactivate Department</a></span></li>
                     </ul>
 
                     <h2>Fresh <span>News</span></h2>
@@ -144,17 +142,7 @@
                                             </td>
                                             <td>
                                                 <div class="form-group">
-                                                    <input type="text" class="form-control" name="name"  id="popup_txt1" placeholder="Department Name" required="">
-                                                </div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <h3>Department Description</h3>
-                                            </td>
-                                            <td>
-                                                <div class="form-group">
-                                                    <textarea class="form-control" name="description" id="popup_txt2" placeholder="Department Description" required=""> </textarea>
+                                                    <span class="form-control" id="popup_txt1"> </span>
                                                 </div>
                                             </td>
                                         </tr>

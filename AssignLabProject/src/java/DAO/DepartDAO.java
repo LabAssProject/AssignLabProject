@@ -84,8 +84,7 @@ public class DepartDAO extends GenericDAO {
     public void Update(Department departObj) {
         // begin transaction
         beginTransaction();
-        Department dept=(Department)getSession().get(Department.class, departObj.getIdDepartment());
-        saveOrUpdate(departObj);
+        merge(departObj);
         getTransaction().commit();
     }
 
