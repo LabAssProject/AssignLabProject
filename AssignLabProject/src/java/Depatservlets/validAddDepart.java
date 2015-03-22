@@ -34,37 +34,7 @@ public class validAddDepart extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
-        try {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet GG</title>");
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet GG at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
-        } finally {
-            out.close();
-        }
-    }
-
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        String name = request.getParameter("name");
+         String name = request.getParameter("name");
         String desc = request.getParameter("description");
         if (!name.trim().equals("") && !desc.trim().equals("")) {
             System.out.println("HHHHH");
@@ -95,6 +65,21 @@ public class validAddDepart extends HttpServlet {
         }
     }
 
+    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
+    /**
+     * Handles the HTTP <code>GET</code> method.
+     *
+     * @param request servlet request
+     * @param response servlet response
+     * @throws ServletException if a servlet-specific error occurs
+     * @throws IOException if an I/O error occurs
+     */
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        processRequest(request, response);
+    }
+
     /**
      * Handles the HTTP <code>POST</code> method.
      *
@@ -106,21 +91,7 @@ public class validAddDepart extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String name = request.getParameter("name");
-        String Othername = request.getParameter("Othername");
-        PrintWriter out = response.getWriter();
-        DepartInt Obj = new DepartImpl();
-        Department deprtObj = new Department();
-        deprtObj.setName(name);
-        List depts = null;
-        if (Othername == null) {
-            depts = Obj.getDepartByName(deprtObj);
-        }
-        if (depts.size() > 0) {
-            out.println("Department exist"); // exit
-        } else {
-            out.println(""); // not exist
-        }
+        processRequest(request, response);
     }
 
     /**

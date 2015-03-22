@@ -41,8 +41,10 @@ public class validDeactDept extends HttpServlet {
             // get id of department name
             deprtObj.setName(SelectName);
             List names = Obj.getDepartByName(deprtObj);
+            deprtObj=(Department) names.get(0);
+            deprtObj.setIsActive(1);
             if (names.size() > 0) {
-                Obj.update((Department) names.get(0));
+                Obj.update(deprtObj);
                 response.sendRedirect("SucessPage.jsp");
             } else {
                 request.setAttribute("allactiveDepart", Obj.GetAllDepartActive());

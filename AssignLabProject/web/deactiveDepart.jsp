@@ -68,10 +68,10 @@
                 <aside>
                     <h3>Categories</h3>
                     <ul class="categories">
-                        <li><span><a href="../AddDepart.jsp">Create Department</a></span></li>
-                        <li><span><a href="../beforeUpdateDepart">Update Department</a></span></li>
+                         <li><span><a href="AddDepart.jsp">Create Department</a></span></li>
+                        <li><span><a href="beforeUpdateDepart">Update Department</a></span></li>
                         <li><span><a href="deleteGroup.html" >Delete Department</a></span></li>
-                        <li class="last"><span><a href="../beforeDeactDepart" >Deactivate Department</a></span></li>
+                        <li class="last"><span><a href="beforeDeactDepart">Deactivate Department</a></span></li>
                     </ul>
 
                     <h2>Fresh <span>News</span></h2>
@@ -89,7 +89,7 @@
                 </aside>
                 <section id="content">
                     <div class="inside" id="inside_form">
-                        <form class="m-t" role="form"  method="post" action="validUpdateDept">
+                        <form class="m-t" role="form"  method="post" action="validDeactDept">
                             <table class="form_table">
                                 <tr>
                                     <td colspan="2">
@@ -118,7 +118,7 @@
                                 </tr>
                                 <tr>
                                     <td colspan="2">
-                                        <button type="button" hidden class="btn btn-create block full-width m-b" id="updateButton" ><a id="link_btn" href="#openModal">Update</a></button>
+                                        <button type="button" hidden class="btn btn-create block full-width m-b" id="updateButton" ><a id="link_btn" href="#openModal">Deactivate</a></button>
                                     </td>
                                     <td></td>
                                 </tr>
