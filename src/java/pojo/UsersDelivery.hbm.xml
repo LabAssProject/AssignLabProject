@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 21, 2015 12:47:58 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.UsersDelivery" table="users_delivery" catalog="labsystem" optimistic-lock="version">
+        <id name="delilverQueueId" type="int">
+            <column name="delilver_queue_id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="lab" class="pojo.Lab" fetch="select">
+            <column name="lab_id" not-null="true" />
+        </many-to-one>
+        <property name="toWhenDate" type="date">
+            <column name="to_when_date" length="10" />
+        </property>
+        <property name="served" type="int">
+            <column name="served" not-null="true" />
+        </property>
+        <set name="trainees" table="users_delivery_has_trainee" inverse="false" lazy="true" fetch="select">
+            <key>
+                <column name="users_delivery_delilver_queue_id" not-null="true" />
+            </key>
+            <many-to-many entity-name="pojo.Trainee">
+                <column name="trainee_id_trainee" not-null="true" />
+            </many-to-many>
+        </set>
+    </class>
+</hibernate-mapping>

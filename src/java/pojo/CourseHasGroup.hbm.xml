@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 21, 2015 12:47:58 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.CourseHasGroup" table="course_has_group" catalog="labsystem" optimistic-lock="version">
+        <composite-id name="id" class="pojo.CourseHasGroupId">
+            <key-property name="courseIdCourse" type="int">
+                <column name="course_id_course" />
+            </key-property>
+            <key-property name="groupIdGroup" type="int">
+                <column name="group_id_group" />
+            </key-property>
+            <key-property name="staffIdStaff" type="int">
+                <column name="staff_id_staff" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="course" class="pojo.Course" update="false" insert="false" fetch="select">
+            <column name="course_id_course" not-null="true" />
+        </many-to-one>
+        <many-to-one name="group" class="pojo.Group" update="false" insert="false" fetch="select">
+            <column name="group_id_group" not-null="true" />
+        </many-to-one>
+        <many-to-one name="staff" class="pojo.Staff" update="false" insert="false" fetch="select">
+            <column name="staff_id_staff" not-null="true" />
+        </many-to-one>
+    </class>
+</hibernate-mapping>

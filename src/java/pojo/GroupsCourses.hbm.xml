@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 21, 2015 12:47:58 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="pojo.GroupsCourses" table="groups_courses" catalog="labsystem" optimistic-lock="version">
+        <id name="groupId" type="java.lang.Integer">
+            <column name="group_id" />
+            <generator class="foreign">
+                <param name="property">group</param>
+            </generator>
+        </id>
+        <one-to-one name="group" class="pojo.Group" constrained="true"></one-to-one>
+    </class>
+</hibernate-mapping>
